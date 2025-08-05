@@ -8,6 +8,7 @@ Java 17, PostgreSQL, Spring, Lombok, Spring Data JPA, Hibernate
 2. Запуск  Docker Compose командой docker-compose up -d  (или docker-compose up --build для деталиции логов)
 (при необходимости проверить логи контейнеров командой docker-compose docker-compose ps)
 3. Открыть bash в среде разработки и выполнить следующие команды: 
+
 *id требуется ввести именно в формате UUID(можно сгенерировать или использовать уже имеющий)
 
 deposit:
