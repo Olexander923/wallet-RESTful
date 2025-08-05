@@ -9,6 +9,7 @@ Java 17, PostgreSQL, Spring, Lombok, Spring Data JPA, Hibernate
 (при необходимости проверить логи контейнеров командой docker-compose docker-compose ps)
 3. Открыть bash в среде разработки и выполнить следующие команды: 
 *id требуется ввести именно в формате UUID(можно сгенерировать или использовать уже имеющий)
+
 deposit:
  curl -X POST http://localhost:8080/api/v1/wallets \
   -H "Content-Type: application/json" \
