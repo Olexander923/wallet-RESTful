@@ -6,10 +6,9 @@ Java 17, PostgreSQL, Spring, Lombok, Spring Data JPA, Hibernate
 ## Инструкция в запуску
 1. Собрать проект командой mvn clean package
 2. Запуск  Docker Compose командой docker-compose up -d  (или docker-compose up --build для деталиции логов)
-(при необходимости проверить логи контейнеров командой docker-compose docker-compose ps)
 3. Открыть bash в среде разработки и выполнить следующие команды: 
 
-*id требуется ввести именно в формате UUID(можно сгенерировать или использовать уже имеющий)
+*id требуется ввести именно в формате UUID(можно сгенерировать или использовать уже имеющийся)
 
 deposit:
  curl -X POST http://localhost:8080/api/v1/wallets \
