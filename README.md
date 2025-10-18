@@ -3,7 +3,7 @@
 ## Стек
 Java 17, PostgreSQL, Spring, Lombok, Spring Data JPA, Hibernate
 
-## Инструкция в запуску
+## Инструкция к запуску
 1. Собрать проект командой mvn clean package
 2. Запуск  Docker Compose командой docker-compose up -d  (или docker-compose up --build для деталиции логов)
 3. Открыть bash в среде разработки и выполнить следующие команды: 
