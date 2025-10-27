@@ -36,11 +36,10 @@ public class WalletController {
             BigDecimal balance = walletService.checkBalance(walletId);
             return ResponseEntity.ok(Map.of("balance", balance));
         } catch (IllegalArgumentException ex) {
-            // Лучше возвращать 404, если кошелек не найден
+            // вернуть 404, если кошелек не найден
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(Map.of("error", ex.getMessage()));
         } catch (Exception ex) {
-            // Логирование ошибки ex.printStackTrace(); // Или использовать логгер
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Map.of("error", "Internal server error while checking balance"));
         }
@@ -84,11 +83,10 @@ public class WalletController {
             // Это охватывает случаи "кошелек не найден", "недостаточно средств", "некорректная сумма"
             return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
         } catch (Exception ex) {
-            // Логирование ошибки ex.printStackTrace(); // Или использовать логгер
-            // Проверим конкретную ошибку оптимистической блокировки
+            // проверка конкретной ошибки оптимистической блокировки
             if (ex.getCause() != null && ex.getCause().getMessage() != null &&
                     (ex.getCause().getMessage().contains("optimistic") || ex.getCause().getMessage().contains("version"))) {
-                return ResponseEntity.status(HttpStatus.CONFLICT) // 409 Conflict
+                return ResponseEntity.status(HttpStatus.CONFLICT) 
                         .body(Map.of("error", "Concurrent modification detected. Please retry the operation."));
             }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
